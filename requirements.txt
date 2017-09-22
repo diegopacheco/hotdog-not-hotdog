@@ -1,0 +1,4 @@
+Flask==0.12.2
+gunicorn==19.7.1
+TensorFlow==1.2
+google-cloud-storage==1.4.0

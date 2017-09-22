@@ -1,0 +1,114 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hot Dog And Not Hot Dog</title>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bulma.css') }}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
+
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+</head>
+<body>
+<section class="hero is-info bsa">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-half is-offset-one-quarter">
+        <p class="title"><img src="{{ url_for('static', filename='logo.png') }}" ></strong></p>
+        <!-- <p class="title">Hot Dog And Not Hot Dog</strong></p> -->
+        <!-- <p class="subtitle">Check out if image is hotdog!</p> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero is-primary bsa">
+<div class="container">
+  <div class="columns is-vcentered">
+    <div class="column is-4">
+      <p class="title">Hot Dog And Not Hot Dog</strong></p>
+      <p class="subtitle">Check out if image is hotdog!</p>
+    </div>
+
+    <div class="column is-8">
+      <div class="bsa-cpc"></div>
+    </div>
+  </div>
+</div>
+</section> -->
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">Inspiration</h1>
+      
+      <div class="columns">
+        <div class="column">
+          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ACmydtFDTGs" frameborder="0" allowfullscreen></iframe>
+        </div>
+        {% block body %}{% endblock %}
+      </div>
+  </div>
+</section>
+  
+</body>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-3">
+        <div id="about" class="content">
+          <!-- <strong xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Bulma</strong> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://jgthms.com" property="cc:attributionName" rel="cc:attributionURL">Jeremy Thomas</a -->
+         <!--  <p id="alternative">
+            <a href="http://bulma.io/alternative-to-bootstrap/">An alternative to <strong>Bootstrap</strong></a>
+          </p> -->
+          
+          <div class="twitter-container">
+            <a href="https://twitter.com/shubhamkalra27" class="twitter-follow-button" data-show-count="true" data-lang="en" data-size="large">@shubhamkalra27</a>
+          </div>
+          
+        </div>
+      </div>
+      <div class="column is-5">
+        <div id="share" class="content">
+          <div>
+            <strong>Support</strong> and verify more hotdogs! <img src="{{ url_for('static', filename='hot_dog_emot.png') }}"  width="20">
+          </div>
+      </div>
+          
+        <div id="social">
+            <iframe src="https://ghbtns.com/github-btn.html?user=shubhamkalra27&type=follow&count=false" frameborder="0" scrolling="0" width="300px" height="30px"></iframe>
+        </div>
+          
+      </div>
+      <div class="column is-4">
+        <div id="sister">
+          <p>
+            My thanks to:
+          </p>
+          <ul>
+<!--             <li>
+              <a href="https://codelabs.developers.google.com/codelabs/tensorflow-for-poets ">
+                Tensorflow for Poets
+              </a>
+            </li> -->
+            <li>
+              <a href="https://github.com/tensorflow/models/tree/master/slim#pre-trained-models">
+                Tensorflow pre trained models
+              </a>
+            </li>
+            <li>
+              <a href="https://cloud.google.com/appengine/">
+                Hosted on Google App engine
+              </a>
+            </li>
+            <li>
+              <a href="http://bulma.io/">
+                A very chill css framework - <strong>Bulma</strong>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</footer>

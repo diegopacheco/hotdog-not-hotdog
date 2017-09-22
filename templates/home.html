@@ -1,0 +1,16 @@
+{% extends "template.html" %}
+{% block body %}
+<div class="column">
+	<h1 class="title">Demo Time</h1>
+    <h2 class="subtitle">
+      Verify your hotdogs! <img src="{{ url_for('static', filename='hot_dog_emot.png') }}"  width="30">
+    </h2>
+	<br>
+	<form method=post enctype=multipart/form-data action="/foo">
+  		<input type="file" name="file">
+    	 <input type="submit" value="Upload">
+	</form>
+</div>
+
+
+{% endblock %}
