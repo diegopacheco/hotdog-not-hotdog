@@ -40,9 +40,7 @@ if not app.debug:
     # Do this as it's production
     # Configure this environment variable via app.yaml
     CLOUD_STORAGE_BUCKET = os.environ['CLOUD_STORAGE_BUCKET']
-else:
-    CLOUD_STORAGE_BUCKET = 'test_bucket_1190'
-    
+   
 
 
 
