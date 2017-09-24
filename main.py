@@ -26,13 +26,13 @@ from flask import Flask, request, redirect, url_for, render_template, flash, ses
 from werkzeug.utils import secure_filename
 from google.cloud import storage
 import pdb
+import runner
 
-script_dir = os.path.dirname(__file__)
 
 app = Flask(__name__)
 # app.secret_key = os.urandom(19)
 
-app.debug = False
+app.debug = True
 
 
 if not app.debug:
@@ -40,7 +40,14 @@ if not app.debug:
     # Do this as it's production
     # Configure this environment variable via app.yaml
     CLOUD_STORAGE_BUCKET = os.environ['CLOUD_STORAGE_BUCKET']
-   
+else:    
+    script_dir = os.path.dirname(__file__)
+    UPLOAD_FOLDER  = os.path.join(os.path.join(script_dir,r'static'),r'upload')
+    app.config['UPLOAD_FOLDER']  = UPLOAD_FOLDER
+
+
+    
+    
 
 
 
@@ -50,32 +57,45 @@ if not app.debug:
 def foo():
     """Process the uploaded file and upload it to Google Cloud Storage."""
     uploaded_file = request.files.get('file')
-
+    file = request.files['file']
     if not uploaded_file:
         return redirect(url_for('index')) 
         # return 'No file uploaded.', 400
 
-    # if not app.debug:
+    if not app.debug:
 
-    # Create a Cloud Storage client.
-    gcs = storage.Client()
+        # Create a Cloud Storage client.
+        gcs = storage.Client()
 
-    # Get the bucket that the file will be uploaded to.
-    bucket = gcs.get_bucket(CLOUD_STORAGE_BUCKET)
+        # Get the bucket that the file will be uploaded to.
+        bucket = gcs.get_bucket(CLOUD_STORAGE_BUCKET)
 
-    # Create a new blob and upload the file's content.
-    blob = bucket.blob(uploaded_file.filename)
+        # Create a new blob and upload the file's content.
+        blob = bucket.blob(uploaded_file.filename)
 
-    blob.upload_from_string(
-        uploaded_file.read(),
-        content_type=uploaded_file.content_type
-    )
-    
-    file_perma_url = blob.public_url
-    #Process the file and calculate the result
-    
+        blob.upload_from_string(
+            uploaded_file.read(),
+            content_type=uploaded_file.content_type
+        )
+        
+        file_perma_url = blob.public_url
+        #Process the file and calculate the result
+    else:
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        file_perma_url = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+
     # print(uploaded_file, file=sys.stderr)
-    result = 'Hotdog!'
+    # pdb.set_trace()
+    result_dict = runner.start_main_process(file_perma_url)
+    print(result_dict, file=sys.stderr)
+    if (result_dict['hotdog'] > result_dict['nothotdog']):
+        result = "Hotdog!"
+    else:
+        result = "Not hotdog!"
+
+    print(result, file=sys.stderr)
+
 
     return render_template('foo.html',  messages={'main':result, 'second':file_perma_url })
 

@@ -1,11 +1,22 @@
 {% extends "template.html" %}
 {% block body %}
 
-	<div class="column">
-		<!-- <img src="/upload/{{ messages['second'] }})"  width="30"> -->
-	  	<span class="tag is-success is-large">{{ messages['main'] }}</span>
-		<img src="{{ messages['second'] }}" style="max-width: 560px; max-height: 315px;">
-	  	<!-- <span class="tag is-danger is-large">{{ messages['main'] }}</span> -->
+	<div class="column">	
+	<!-- <h2>{{ messages['main'] }}</h2>	 -->
+		{% if (messages['main'] == "Hotdog!" ) %}
+			<script>console.log("case 1")</script>
+		  	<div class="image" style="border: 3px solid #23d160">
+
+				<img src="{{ messages['second'] }}" style="position: relative; width: 100%; /* for IE 6 *">	      
+		      	<span class="tag is-success is-large" style="position: absolute; top: 0;  left: 0;  width: 100%; ">{{ messages['main'] }}</span>
+			</div>
+		{% else %}
+			<script>console.log("case 2")</script>
+			<div class="image" style="border: 3px solid #ff3860">
+				<img src="{{ messages['second'] }}" style="position: relative; width: 100%; /* for IE 6 *">	      
+		      	<span class="tag is-danger is-large" style="position: absolute; top: 0;  left: 0;  width: 100%; ">{{ messages['main'] }}</span>
+			</div>
+		{% endif %}
 	</div>
 </div>
 <div class="columns">

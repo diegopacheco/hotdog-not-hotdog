@@ -32,15 +32,15 @@ Here is an image classifier - which reads an uploaded image to classify as a hot
   * The second script called quantize_graph is available for optimization which quantizes the weight of the network allowing 
 
 
-* List of all [Pre-trained models](https://github.com/tensorflow/models/tree/master/slim#pre-trained-models) one can use to build an image classifier depending on usage and compute available
+* List of all [Pre-trained models](https://github.com/tensorflow/models/tree/998104bfdf14f74a2398e951325e4660862c5f20/slim#pre-trained-models) one can use to build an image classifier depending on usage and compute available
 
 
-*  Demo hosted on (Google App Engine)[https://cloud.google.com/] using Flask
+*  Demo hosted on [Google App Engine](https://cloud.google.com) using Flask
    * Images hoted on google bucket 
    * Images extracted from google images using Fatkun Batch Download Image
 
 
 ## Potential
 * Product #1: With enough training size and compute strength - Anyone can extend this to create the See-food App/ Shazam for food
-* Product #2: Tie food to ingredients - knowing habits of food preference Amazon can reccomend ingredients when they look for food on Yelp. 
+* Product #2: Tie food to ingredients and enable AI- "Alexa get ingredients for Risotto for six people on friday" 
 * Product #3: Knowing your allergies an app can point camera to the food and we lookup ingredients and warn the user
