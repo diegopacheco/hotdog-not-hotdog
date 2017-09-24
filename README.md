@@ -1,6 +1,6 @@
 # hotdog not hotdog  <a href="url"><img src="http://www.emoji.co.uk/files/apple-emojis/food-drink-ios/381-hot-dog.png"  height="48" width="48" ></a>
 
-## Inspired from Silicon Valley tv show's Entrepreneur in residence Jiyan Yang's app 
+## Inspired from Silicon Valley tv show's Entrepreneur in Residence Jiyan Yang's app 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ACmydtFDTGs/0.jpg)](https://www.youtube.com/watch?v=ACmydtFDTGs)
 
 
@@ -17,7 +17,7 @@ Here is an image classifier - which reads an uploaded image to classify as a hot
 * Thanks to google's codelab demos of tensorflow for image classification [link](https://codelabs.developers.google.com/). 
 
 
-* I fetched images fortwo categories
+* I fetched images for two categories
   -  hotdog
   -  non hotdogs included various other images like - sandwiches, pizzas, salads, pasta, movie covers, wallpapers etc to cover wide variety of images.
 

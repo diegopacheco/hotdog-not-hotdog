@@ -47,11 +47,6 @@ else:
 
 
     
-    
-
-
-
-
 
 @app.route('/foo', methods=['POST'])
 def foo():
@@ -88,36 +83,20 @@ def foo():
     # print(uploaded_file, file=sys.stderr)
     # pdb.set_trace()
     result_dict = runner.start_main_process(file_perma_url)
-    print(result_dict, file=sys.stderr)
+    
     if (result_dict['hotdog'] > result_dict['nothotdog']):
         result = "Hotdog!"
     else:
         result = "Not hotdog!"
 
-    print(result, file=sys.stderr)
+    if app.debug:
+        print(result_dict, file=sys.stderr)
+        print(result, file=sys.stderr)
 
 
     return render_template('foo.html',  messages={'main':result, 'second':file_perma_url })
 
-    # list_of_files = glob.glob(UPLOAD_FOLDER+'/*')
-    # latest_file = max(list_of_files, key=os.path.getctime)
-    # try:
-    #     image_loc = session['file_location']
-    #     print(image_loc, file=sys.stderr)
-    # except:
-    #     image_loc = ''
-    # result = 'Hotdog!'
-    
-    # if (image_loc == ''):
-    #     return redirect(url_for('index')) 
-    # else:
-
-'''<!doctype html>
-<title>Hello from Flask</title>
-<h1>Hello World!</h1>
-<img src="latest_file">
-
-'''
+   
 
 @app.route('/')
 def index():
