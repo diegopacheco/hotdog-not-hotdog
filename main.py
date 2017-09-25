@@ -19,20 +19,38 @@
 from __future__ import print_function # In python 2.7
 import sys
 
-
+import argparse
 import logging
 import os, glob
 from flask import Flask, request, redirect, url_for, render_template, flash, session
 from werkzeug.utils import secure_filename
-from google.cloud import storage
+# from google.cloud import storage
 import pdb
 import runner
+import time
+import platform
+import tensorflow as tf
 
 
 app = Flask(__name__)
 # app.secret_key = os.urandom(19)
-
 app.debug = True
+
+
+app.secret_key = b'\x08%\xa9\x11V3\x88l\xfcmJ@\xe3q\xb3-<U\xa9\x81Z\x00\x1f\xcc\xfeBe\xea\x81\xef\x90\x88D\xb0"Z\xcc\xf5\xc2\xa2\x17\xd5\xecQ\xaf\x95\x8a`\x11\x0c'
+
+# parser = argparse.ArgumentParser()
+# parser.add_argument('--debugR', action='store_true',help="determine if it is in local")
+
+# args = parser.parse_args()
+
+
+# if args.debugR:
+#     app.debug = True
+# else:
+#     app.debugR = False
+
+
 
 
 if not app.debug:
@@ -82,6 +100,8 @@ def foo():
 
     # print(uploaded_file, file=sys.stderr)
     # pdb.set_trace()
+    print("file saved to " + file_perma_url , file=sys.stderr)
+
     result_dict = runner.start_main_process(file_perma_url)
     
     if (result_dict['hotdog'] > result_dict['nothotdog']):
@@ -89,9 +109,10 @@ def foo():
     else:
         result = "Not hotdog!"
 
-    if app.debug:
-        print(result_dict, file=sys.stderr)
-        print(result, file=sys.stderr)
+    # result = "Not hotdog!"
+
+    print(result_dict, file=sys.stderr)
+    print(result, file=sys.stderr)
 
 
     return render_template('foo.html',  messages={'main':result, 'second':file_perma_url })
@@ -176,6 +197,7 @@ def server_error(e):
 @app.route('/hello/<name>')
 def hello(name=None):
     return render_template('hello.html', name=name)
+
 
 
 if __name__ == '__main__':
