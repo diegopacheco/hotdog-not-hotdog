@@ -35,8 +35,8 @@ Here is an image classifier - which reads an uploaded image to classify as a hot
 * List of all [Pre-trained models](https://github.com/tensorflow/models/tree/998104bfdf14f74a2398e951325e4660862c5f20/slim#pre-trained-models) one can use to build an image classifier depending on usage and compute available
 
 
-*  Demo hosted on [Google App Engine](https://cloud.google.com) using Flask
-   * Images hoted on google bucket 
+*  Demo hosted on ~~[Google App Engine](https://cloud.google.com)~~  [PythonAnywhere](https://www.pythonanywhere.com) using Flask
+   * ~~Images hoted on google bucket ~~
    * Images extracted from google images using Fatkun Batch Download Image
 
 
