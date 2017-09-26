@@ -36,7 +36,6 @@ Here is an image classifier - which reads an uploaded image to classify as a hot
 
 
 *  Demo hosted on ~~[Google App Engine](https://cloud.google.com)~~  [PythonAnywhere](https://www.pythonanywhere.com) using Flask
-   * ~~Images hoted on google bucket ~~
    * Images extracted from google images using Fatkun Batch Download Image
 
 
