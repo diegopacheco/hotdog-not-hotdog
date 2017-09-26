@@ -7,7 +7,7 @@
 Here is an image classifier - which reads an uploaded image to classify as a hotdog or a not hotdog 
 
 
-### Demo - https://hotdog-not-hotdog.appspot.com/
+### Demo - http://nothotdog.pythonanywhere.com/ 
 
  
 
